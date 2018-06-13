@@ -1,5 +1,6 @@
 package com.dice;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -58,12 +59,14 @@ public class DiceJobSearch {
 		}
 		
 		driver.close();
+		System.out.println("Tist Complited -"+ LocalDateTime.now());
+		
 //		Step 1. Launch browser and navigate to
 //		 https://dice.com
 //
 //		Expected: dice home page should be displayed
 //
-//		Steps 2: Insert search keyword and location then click on find tech jobs 
+//		Steps 2: Insert search keyword and location then click on find tech jobs git
 //		Expected: 
 //		1.Search results page should be loaded. 
 //		2. Page tile should contain count of results along with search keyword.
