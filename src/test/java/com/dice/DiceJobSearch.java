@@ -1,6 +1,7 @@
 package com.dice;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -39,8 +40,32 @@ public class DiceJobSearch {
 			System.out.println("Step Fail. Dice homepage did not load successfully");
 			throw new RuntimeException("Step Fail. Dice homepage did not load successfully");
 		}
-
-		String keyword = "Java developer";
+		ArrayList<String> keywordList= new ArrayList<>();
+		keywordList.add("SharePoint Requirements Analyst");
+		keywordList.add("Java developer");
+		keywordList.add("Sr. QA Lead");
+		keywordList.add("UI Developer");
+		keywordList.add(".NET Developer");
+		keywordList.add("Junior Software Development Engineer in Test (SDET)");
+		keywordList.add("K2 SharePoint Developer");
+		keywordList.add("Project Analyst");
+		keywordList.add("Software development (Tableau)");
+		keywordList.add("Test Engineer");
+		keywordList.add("Sr. Business Analyst/Project Manager");
+		keywordList.add("DELTEK ENTERPRISE ANALYST");
+		keywordList.add("Secret Cleared Security Analyst (Veteran Friendly)");
+		keywordList.add("Telecommunication Admin ");
+		keywordList.add("Mid-Level ISSO");
+		keywordList.add("Linux NOC Analyst");
+		keywordList.add("Secret Cleared Linux Admin/ Engineer");
+		keywordList.add("Quantitative Modeler");
+		keywordList.add("Incident Manager");
+		keywordList.add("IT Security Specialist");
+		
+		
+		
+		for (String keyword : keywordList) {
+			
 		driver.findElement(By.id("search-field-keyword")).clear();
 		driver.findElement(By.id("search-field-keyword")).sendKeys(keyword);
 		String location = "22102";
@@ -52,10 +77,15 @@ public class DiceJobSearch {
 		System.out.println(count);
 		//chacking if count biger than 0
 		int countResult= Integer.parseInt(count.replaceAll(",", ""));
-		if (countResult>0) {
+	
+			if (countResult>0) {
+			
 			System.out.println("keyword : " + keyword+" search returnd "+countResult +" results in "+location);
 		}else {
 			System.out.println("Search FAILS keyword: " + keyword+" search returnd "+countResult +" results in "+location);
+		}
+			driver.navigate().back();
+		
 		}
 		
 		driver.close();
